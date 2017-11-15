@@ -1,0 +1,8 @@
+<application>
+  <component name="PersistenceGenerationSettings">
+    <option name="addToUnit" value="true" />
+    <option name="generateDefaultRelationships" value="true" />
+    <option name="ADD_TO_UNIT" value="true" />
+    <option name="GENERATE_DEFAULT_RELATIONSHIPS" value="true" />
+  </component>
+</application>
