@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="404494ff-7dbc-4941-ac26-4d1ab2eaf85d" name="Default" comment="Добавление комментария и доработка кода.&#10;Добавление и отредактирование XML Entity.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_15_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/entity/Message.hbm.xml" />
+    <list default="true" id="404494ff-7dbc-4941-ac26-4d1ab2eaf85d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IPChat_v12.iml" afterPath="$PROJECT_DIR$/IPChat_v12.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/AddToMySQL.java" afterPath="$PROJECT_DIR$/src/main/java/AddToMySQL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ChatClientApplet.java" afterPath="$PROJECT_DIR$/src/main/java/ChatClientApplet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ChatClientWin.java" afterPath="$PROJECT_DIR$/src/main/java/ChatClientWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ChatServer.java" afterPath="$PROJECT_DIR$/src/main/java/ChatServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ClientInWeb.java" afterPath="$PROJECT_DIR$/src/main/java/ClientInWeb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ClientInWin.java" afterPath="$PROJECT_DIR$/src/main/java/ClientInWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Settings.java" afterPath="$PROJECT_DIR$/src/main/java/Settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SocketThread.java" afterPath="$PROJECT_DIR$/src/main/java/SocketThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entity/MessageEntity.hbm.xml" afterPath="$PROJECT_DIR$/src/main/java/entity/MessageEntity.hbm.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -480,7 +467,7 @@
       <option name="presentableId" value="Default" />
       <updated>1511008727512</updated>
       <workItem from="1511008729811" duration="2758000" />
-      <workItem from="1511012742241" duration="11799000" />
+      <workItem from="1511012742241" duration="11814000" />
     </task>
     <task id="LOCAL-00001" summary="ok">
       <created>1511012832601</created>
@@ -496,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511028506904</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавление комментария и доработка кода.&#10;Добавление и отредактирование XML Entity.">
+      <created>1511037599137</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511037599137</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -532,7 +526,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14557000" />
+    <option name="totallyTimeSpent" value="14572000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
