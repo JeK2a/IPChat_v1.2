@@ -16,7 +16,9 @@ class ChatServer extends JFrame {
             public void windowOpened(WindowEvent e) { }
 
             @Override
-            public void windowClosing(WindowEvent e) { System.exit(0); }
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
 
             @Override
             public void windowClosed(WindowEvent e) { }
@@ -53,7 +55,7 @@ class ChatServer extends JFrame {
     }
 
     public static void main(String[] args) {
-        new ChatServer("IPChatServer V5.1");
+        new ChatServer("IPChatServer V1.2");
 
         try (ServerSocket serverSocket = new ServerSocket(Settings.getPort())) {
             enterMessage("Server starting...");

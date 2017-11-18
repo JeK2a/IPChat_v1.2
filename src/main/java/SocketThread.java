@@ -5,11 +5,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 class SocketThread implements Runnable {
 
     private final Socket SOCKET;
-    private static ArrayList<Socket> listSocket = new ArrayList<>();
+    private static HashSet<Socket> listSocket = new HashSet<>();
     private static int clientsColvo = 0;
     private Message message = null;
     private ObjectInputStream inputStream = null;

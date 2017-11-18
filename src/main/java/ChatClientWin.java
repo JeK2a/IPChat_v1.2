@@ -21,7 +21,8 @@ public class ChatClientWin {
         textArea.setCaretPosition(ChatClientWin.textArea.getText().length());
     }
 
-    private static class EnterNameDialog extends JDialog {  // Диалоговое окно для ввода имени пользователя чата
+    // Диалоговое окно для ввода имени пользователя чата
+    private static class EnterNameDialog extends JDialog {
         EnterNameDialog(JFrame parent) {  // Конструктор
             super(parent, "Enter name dialog", true);
             setLayout(new FlowLayout());

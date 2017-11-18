@@ -30,8 +30,8 @@ class AddToMySQL {
             Statement statement = connection.createStatement(); // getting Statement object to execute query
 
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-                        " VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
-                        "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
+                           " VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
+                           "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
             statement.executeUpdate(query);
         } catch(SQLException | ClassNotFoundException e){
              System.err.println(e);

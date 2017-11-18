@@ -1,18 +1,22 @@
 import entity.Message;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
+// История сообщений
 class ChatHistory {
-    private static ArrayList<Message> list = new ArrayList<>();
+    private static HashSet<Message> list = new HashSet<>(); // Список сообщений
 
+    // Добавление нового сообщения в историю
     public static void add(Message message) {
-        if (list.size() >= Settings.getSizeHistory()) {
-            list.remove(0); // Удаление самого старого сообщения
+        if (list.size() >= Settings.getSizeHistory()) { // Если история заполнена, то
+            list.remove(0);                         // Удаление самого старого сообщения
         }
-        list.add(message); // Добавление нового сообщения в историю
+        list.add(message);                              // Добавление нового сообщения в историю
     }
 
-    public static ArrayList<Message> getList() {
+    // Получить список сообщений
+    public static HashSet<Message> getList() {
         return list;
     }
 }

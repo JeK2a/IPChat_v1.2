@@ -52,7 +52,7 @@ class MyTest {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url, user, password); // opening database connection to MySQL server
+            Connection connection = DriverManager.getConnection(url, user, password); // Подключение к MySQL базе данных
 
             if (connection == null) {
                 System.out.println("Нет соединения с БД!");
@@ -63,9 +63,9 @@ class MyTest {
 
             // executing SELECT query
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-                    " VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) +
-                    "\', \'" + "JeK2aTest" + "\', \'" + "test" + "\', \'" + "test" + "\', \'" + "test" + "\');";
-            statement.executeUpdate(query);
+                           " VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) +
+                           "\', \'" + "JeK2aTest" + "\', \'" + "test" + "\', \'" + "test" + "\', \'" + "test" + "\');";
+            statement.executeUpdate(query);  // Выполнение запроса
             System.out.println("TestAddToMySQL 2 Все ок!");
         } catch(SQLException | ClassNotFoundException ex){
             System.err.println(ex);

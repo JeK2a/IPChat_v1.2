@@ -1,5 +1,4 @@
 import entity.Message;
-
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,9 +32,7 @@ public class ChatClientApplet extends Applet implements ActionListener {
         textEnter.requestFocus(); // Установить фокус на панель ввода
 
         try {
-            //new Settings();  // подключить первональные настройки
-
-            InetAddress address = InetAddress.getByName(Settings.getServerPc()); // получение адреса сервера в сети
+             InetAddress address = InetAddress.getByName(Settings.getServerPc()); // получение адреса сервера в сети
             Socket socket = new Socket(address, Settings.getPort()); // открытия соета для связи с сервером
 
             whoIm = InetAddress.getLocalHost().getHostName() + " - " + InetAddress.getLocalHost().getHostAddress();
@@ -63,8 +60,8 @@ public class ChatClientApplet extends Applet implements ActionListener {
         try {
             out.writeObject(new Message(new Date(), name, "END", whoIm, "offline")); // отправка на сервер данных, что клиент отключился
             out.flush(); // проталкивание буфера
-        } catch (IOException e1) {
-            System.err.println(e1);
+        } catch (IOException e) {
+            System.err.println(e);
         }
     }
 

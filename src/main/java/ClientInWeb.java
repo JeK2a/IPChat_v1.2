@@ -8,7 +8,9 @@ class ClientInWeb implements Runnable {
 
     private Socket socket;
 
-    ClientInWeb(Socket socket) { this.socket = socket; }
+    ClientInWeb(Socket socket) {
+        this.socket = socket;
+    }
 
     @Override
     public void run() {
