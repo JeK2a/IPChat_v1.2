@@ -6,11 +6,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
+// Получение настроек из XML файла
 class Settings {
-    private static int port;
-    private static String serverPc;
-    private static int sizeHistory;
-    private static int sizeMaxClients;
+    private static int port; // Порт
+    private static String serverPc; // Имя серверного компьютера
+    private static int sizeHistory; // Получить максимального количества сообщении в истории
+    private static int sizeMaxClients; // Получение максимального количества подключенных к серверу клиентов
 
     static int getPort() {
         openFileXML();
@@ -32,12 +33,13 @@ class Settings {
         return sizeMaxClients;
     }
 
+    // Получение настроек из XML файла
     static void openFileXML() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         Document doc = null;
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-//            File file = new File("E:\\Dropbox\\IPChatv3\\configChat.xml");
+//          File file = new File("E:\\Dropbox\\IPChatv3\\configChat.xml");
             File file = new File("configChat.xml");
             doc = builder.parse(file);
 //          URL url = new URL("http://jc3.ucoz.com/_ld/0/1_configChat.xml");

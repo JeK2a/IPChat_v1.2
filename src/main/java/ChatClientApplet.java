@@ -17,9 +17,10 @@ public class ChatClientApplet extends Applet implements ActionListener {
     private String name = "";
     private String whoIm;
 
+
     static void addMessage(Message message) {
-        textArea.append(String.valueOf(message) + "\n");
-        textArea.setCaretPosition(textArea.getText().length());
+        textArea.append(String.valueOf(message) + "\n");        // Добавление сообщения в конец текстового поля
+        textArea.setCaretPosition(textArea.getText().length()); // Перемещение в конец текстового поля
     }
 
     @Override

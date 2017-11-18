@@ -29,8 +29,9 @@ class AddToMySQL {
 
             Statement statement = connection.createStatement(); // getting Statement object to execute query
 
+            // Создание запроса для добавление сообщения в базу  M
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-                           " VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
+                           "VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
                            "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
             statement.executeUpdate(query);
         } catch(SQLException | ClassNotFoundException e){

@@ -12,13 +12,14 @@ import java.util.Date;
 
 public class ChatClientWin {
 
-    private static JTextArea textArea;
-    private static JTextField textEnter;
-    private static String name = "anonim";
+    private static JTextArea textArea;     // Текстовое поле для отбажения текстовых сообщений
+    private static JTextField textEnter;   // Текстовое поле для ввода ссообщения
+    private static String name = "anonim"; // Стандартное имя
 
+    // Добавление сообщения в конец текстового поля
     static void addMessage(Message message) {
-        textArea.append(String.valueOf(message) + "\n");
-        textArea.setCaretPosition(ChatClientWin.textArea.getText().length());
+        textArea.append(String.valueOf(message) + "\n");                      // Добавление сообщения в конец текстового поля
+        textArea.setCaretPosition(ChatClientWin.textArea.getText().length()); // Перемещение в конец текстового поля
     }
 
     // Диалоговое окно для ввода имени пользователя чата
@@ -49,7 +50,7 @@ public class ChatClientWin {
         private String whoIm = "";
 
         MainFrame() {
-            super("IPChatClient V4.3");
+            super("IPChatClient V1.2");
             setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
             try {
