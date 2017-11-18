@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.MessageEntity" table="message" schema="myshema">
+        <id name="date">
+            <column name="date" sql-type="timestamp(6)"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="text">
+            <column name="text" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="namePcAndIp">
+            <column name="namePCAndIP" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="varchar(45)" length="45"/>
+        </property>
+    </class>
+</hibernate-mapping>
