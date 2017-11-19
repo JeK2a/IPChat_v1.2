@@ -1,7 +1,7 @@
 import com.ChatIP.Settings;
 import com.ChatIP.entity.Message;
 import org.junit.jupiter.api.Test;
-import server.AddToMySQL;
+import com.ChatIP.server.AddToMySQL;
 
 import java.sql.*;
 import java.util.Date;
@@ -48,8 +48,8 @@ class MyTest {
         AddToMySQL.addMessageToMySQL(new Message(new Timestamp(new Date().getTime()), "JeK2aTest", "testText", "testPC", "test"));
         System.out.println("TestAddToMySQL 1 Все ок!");
 
-        for (Integer i=0; i<100; i++) {
-            AddToMySQL.addMessageToMySQL(new Message(new Timestamp(new Date().getTime()), "JeK2aTest", i.toString(), "testPC", "test"));
+        for (int i = 0; i<10000; i++) {
+            AddToMySQL.addMessageToMySQL(new Message(new Timestamp(new Date().getTime()), "JeK2aTest", "text", "testPC", "test"));
         }
         System.out.println("TestAddToMySQL 3 Все ок!");
 

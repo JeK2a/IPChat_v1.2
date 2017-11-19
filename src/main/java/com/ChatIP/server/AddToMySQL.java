@@ -4,7 +4,7 @@ import com.ChatIP.entity.Message;
 
 import java.sql.*;
 
-class AddToMySQL {
+public class AddToMySQL {
 
     private static final String url = "jdbc:mysql://localhost:3306";
     private static final String user = "root";
@@ -33,10 +33,7 @@ class AddToMySQL {
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
                            "VALUES (\'" + timestamp + "\', \'" + name + "\', \'" + text +
                            "\', \'" + namePCAndIP + "\', \'" + status + "\');";
-//            String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-//                           "VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
-//                           "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
-            statement.executeUpdate(query);
+            statement.executeUpdate(query); // Выполнить запрос
         } catch(SQLException | ClassNotFoundException e){
              System.err.println(e);
         } finally {

@@ -41,7 +41,6 @@ public class Settings {
         Document doc = null;
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-//          File file = new File("E:\\Dropbox\\IPChatv3\\configChat.xml");
             File file = new File("configChat.xml");
             doc = builder.parse(file);
 //          URL url = new URL("http://jc3.ucoz.com/_ld/0/1_configChat.xml");

@@ -78,20 +78,14 @@ public class ChatClientApplet extends Applet implements ActionListener {
     @Override
     public void paint(Graphics g) {
         if (!textEnter.getText().equals("")) {
-            if (name.equals("")) {
-                name = textEnter.getText();
-            } else {
-                try {
-                    String status = "online";
-                    // Отправка сообщения на сервер
-                    out.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status));
-                    out.flush();            // проталкивание буфера вывода
-                    textEnter.setText("");  // обнуление строки для ввода текста
-                } catch (IOException e2) {
-                    System.err.println(e2);
-                }
+            try {
+                // Отправка сообщения на сервер
+                out.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, "online"));
+                out.flush();            // проталкивание буфера вывода
+            } catch (IOException e) {
+                System.err.println(e);
             }
-            textEnter.setText("");
+            textEnter.setText("");  // обнуление строки для ввода текста
         }
     }
 }
