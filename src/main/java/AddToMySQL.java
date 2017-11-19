@@ -11,7 +11,7 @@ class AddToMySQL {
     private static final String password = "nokia3510";
 
     static void addMessageToMySQL(Message message) {
-        Date date = message.getDate();
+        Timestamp timestamp = new Timestamp(message.getDate().getTime());
         String name = message.getName();
         String text = message.getText();
         String namePCAndIP = message.getNamePCAndIP();
@@ -31,8 +31,11 @@ class AddToMySQL {
 
             // Создание запроса для добавление сообщения в базу  M
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-                           "VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
-                           "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
+                           "VALUES (\'" + timestamp + "\', \'" + name + "\', \'" + text +
+                           "\', \'" + namePCAndIP + "\', \'" + status + "\');";
+//            String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
+//                    "VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
+//                    "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
             statement.executeUpdate(query);
         } catch(SQLException | ClassNotFoundException e){
              System.err.println(e);

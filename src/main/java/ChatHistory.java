@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 // История сообщений
 class ChatHistory {
-    private static HashSet<Message> list = new HashSet<>(); // Список сообщений
+    private static ArrayList<Message> list = new ArrayList<>(); // Список сообщений
 
     // Добавление нового сообщения в историю
     public static void add(Message message) {
@@ -16,7 +16,7 @@ class ChatHistory {
     }
 
     // Получить список сообщений
-    public static HashSet<Message> getList() {
+    public static ArrayList<Message> getList() {
         return list;
     }
 }

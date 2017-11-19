@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class ChatClientWin {
@@ -88,7 +89,7 @@ public class ChatClientWin {
             textEnter.addActionListener(e -> {
                 if (!textEnter.getText().equals("")) {
                     try {
-                        outputStream.writeObject(new Message(new Date(), name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
+                        outputStream.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
                         outputStream.flush(); // проталкивание буфера вывода
                         textEnter.setText("");  // обнуление строки для ввода текста
                     } catch (IOException e2) {
@@ -106,7 +107,7 @@ public class ChatClientWin {
                 @Override
                 public void windowClosing(WindowEvent e) {
                     try {
-                        outputStream.writeObject(new Message(new Date(), name, "END", whoIm, "offline")); // отправка на сервер данных, что клиент отключился
+                        outputStream.writeObject(new Message(new Timestamp(new Date().getTime()), name, "END", whoIm, "offline")); // отправка на сервер данных, что клиент отключился
                         outputStream.flush(); // проталкивание буфера
                     } catch (IOException e1) {
                         System.err.println(e1);

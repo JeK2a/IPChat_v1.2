@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.*;
@@ -16,7 +17,7 @@ public class Message implements Serializable {
 
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date date = null;
+    private Timestamp date = null;
 
     @Column(name = "name")
     private String name = null;
@@ -30,8 +31,7 @@ public class Message implements Serializable {
     @Column(name = "status")
     private String status = null;
 
-    // date, name, message, ip, status
-    public Message(Date date, String name, String text, String namePCAndIP, String status) {
+    public Message(Timestamp date, String name, String text, String namePCAndIP, String status) {
         this.date = date;
         this.name = name;
         this.text = text;
@@ -40,7 +40,7 @@ public class Message implements Serializable {
     }
 
     public Message(String name, String text, String status) {
-        this.date = new Date();
+        this.date = new Timestamp(new Date().getTime());
         this.name = name;
         this.text = text;
         this.namePCAndIP = null;
@@ -48,7 +48,7 @@ public class Message implements Serializable {
     }
 
     public Message(String name, String text) {
-        this.date = new Date();
+        this.date =new Timestamp(new Date().getTime());
         this.name = name;
         this.text = text;
         this.namePCAndIP = null;
@@ -59,7 +59,7 @@ public class Message implements Serializable {
         return id;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 

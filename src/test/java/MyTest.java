@@ -1,10 +1,7 @@
 import entity.Message;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,7 +21,7 @@ class MyTest {
     @Test
     void testMessage() throws Exception {
         try {
-            System.out.println(new Message(new Date(), "JeK2a", "text", "PCPI", "status"));
+            System.out.println(new Message(new Timestamp(new Date().getTime()), "JeK2a", "text", "PCPI", "status"));
             System.out.print("TestMessage Все ок!");
         } catch (Exception e) {
             System.err.println("TestMessage Нифига не ок!");
@@ -47,7 +44,7 @@ class MyTest {
     @Test
     void testAddToMySQL() throws Exception {
 
-        AddToMySQL.addMessageToMySQL(new Message(new Date(), "JeK2aTest", "testText", "testPC", "test"));
+        AddToMySQL.addMessageToMySQL(new Message(new Timestamp(new Date().getTime()), "JeK2aTest", "testText", "testPC", "test"));
         System.out.println("TestAddToMySQL 1 Все ок!");
 
         try {
@@ -63,8 +60,8 @@ class MyTest {
 
             // executing SELECT query
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-                           " VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) +
-                           "\', \'" + "JeK2aTest" + "\', \'" + "test" + "\', \'" + "test" + "\', \'" + "test" + "\');";
+                           " VALUES (\'" + new Timestamp(new Date().getTime()) + "\', \'" + "JeK2aTest" +
+                           "\', \'" + "test" + "\', \'" + "test" + "\', \'" + "test" + "\');";
             statement.executeUpdate(query);  // Выполнение запроса
             System.out.println("TestAddToMySQL 2 Все ок!");
         } catch(SQLException | ClassNotFoundException ex){

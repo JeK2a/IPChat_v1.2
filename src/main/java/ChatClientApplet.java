@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class ChatClientApplet extends Applet implements ActionListener {
@@ -16,7 +17,6 @@ public class ChatClientApplet extends Applet implements ActionListener {
     private ObjectOutputStream out;
     private String name = "";
     private String whoIm;
-
 
     static void addMessage(Message message) {
         textArea.append(String.valueOf(message) + "\n");        // Добавление сообщения в конец текстового поля
@@ -59,7 +59,7 @@ public class ChatClientApplet extends Applet implements ActionListener {
     @Override
     public void destroy() {
         try {
-            out.writeObject(new Message(new Date(), name, "END", whoIm, "offline")); // отправка на сервер данных, что клиент отключился
+            out.writeObject(new Message(new Timestamp(new Date().getTime()), name, "END", whoIm, "offline")); // отправка на сервер данных, что клиент отключился
             out.flush(); // проталкивание буфера
         } catch (IOException e) {
             System.err.println(e);
@@ -79,7 +79,7 @@ public class ChatClientApplet extends Applet implements ActionListener {
             } else {
                 try {
                     String status = "online";
-                    out.writeObject(new Message(new Date(), name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
+                    out.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
                     out.flush(); // проталкивание буфера вывода
                     textEnter.setText("");  // обнуление строки для ввода текста
                 } catch (IOException e2) {

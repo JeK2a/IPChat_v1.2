@@ -55,14 +55,14 @@ public class MessageEntity {
     }
 
     @Column(name = "namePCAndIP")
-    private String namePcAndIp;
+    private String namePCAndIP;
 
-    public String getNamePcAndIp() {
-        return namePcAndIp;
+    public String getNamePCAndIP() {
+        return namePCAndIP;
     }
 
-    public void setNamePcAndIp(String namePcAndIp) {
-        this.namePcAndIp = namePcAndIp;
+    public void setNamePCAndIP(String namePcAndIp) {
+        this.namePCAndIP = namePcAndIp;
     }
 
     @Column(name = "status")
@@ -87,7 +87,7 @@ public class MessageEntity {
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (text != null ? !text.equals(that.text) : that.text != null) return false;
-        if (namePcAndIp != null ? !namePcAndIp.equals(that.namePcAndIp) : that.namePcAndIp != null) return false;
+        if (namePCAndIP != null ? !namePCAndIP.equals(that.namePCAndIP) : that.namePCAndIP != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
@@ -99,7 +99,7 @@ public class MessageEntity {
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (text != null ? text.hashCode() : 0);
-        result = 31 * result + (namePcAndIp != null ? namePcAndIp.hashCode() : 0);
+        result = 31 * result + (namePCAndIP != null ? namePCAndIP.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
