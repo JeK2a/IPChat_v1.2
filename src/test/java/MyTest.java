@@ -1,8 +1,9 @@
-import entity.Message;
+import com.ChatIP.Settings;
+import com.ChatIP.entity.Message;
 import org.junit.jupiter.api.Test;
+import server.AddToMySQL;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 class MyTest {

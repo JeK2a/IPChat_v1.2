@@ -1,4 +1,4 @@
-package entity;
+package com.ChatIP.entity;
 
 import javax.persistence.*;
 

@@ -1,3 +1,5 @@
+package com.ChatIP;
+
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
@@ -7,34 +9,34 @@ import java.io.File;
 import java.io.IOException;
 
 // Получение настроек из XML файла
-class Settings {
+public class Settings {
     private static int port;           // Порт
     private static String serverPc;    // Имя серверного компьютера
     private static int sizeHistory;    // Получить максимального количества сообщении в истории
     private static int sizeMaxClients; // Получение максимального количества подключенных к серверу клиентов
 
-    static int getPort() {
+    public static int getPort() {
         openFileXML();
         return port;
     }
 
-    static String getServerPc() {
+    public static String getServerPc() {
         openFileXML();
         return serverPc;
     }
 
-    static int getSizeHistory() {
+    public static int getSizeHistory() {
         openFileXML();
         return sizeHistory;
     }
 
-    static int getSizeMaxClients() {
+    public static int getSizeMaxClients() {
         openFileXML();
         return sizeMaxClients;
     }
 
     // Получение настроек из XML файла
-    static void openFileXML() {
+    private static void openFileXML() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         Document doc = null;
         try {

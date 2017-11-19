@@ -1,3 +1,7 @@
+package com.ChatIP.server;
+
+import com.ChatIP.Settings;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;

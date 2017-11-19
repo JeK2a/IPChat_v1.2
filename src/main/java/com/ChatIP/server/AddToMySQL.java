@@ -1,8 +1,8 @@
-import entity.Message;
+package com.ChatIP.server;
+
+import com.ChatIP.entity.Message;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 class AddToMySQL {
 

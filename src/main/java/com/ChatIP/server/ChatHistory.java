@@ -1,10 +1,13 @@
-import entity.Message;
+package com.ChatIP.server;
 
-import java.util.ArrayList;
+import com.ChatIP.Settings;
+import com.ChatIP.entity.Message;
+
+import java.util.LinkedList;
 
 // История сообщений
 class ChatHistory {
-    private static ArrayList<Message> list = new ArrayList<>(); // Список сообщений
+    private static LinkedList<Message> list = new LinkedList<>(); // Список сообщений
 
     // Добавление нового сообщения в историю
     public static void add(Message message) {
@@ -15,7 +18,7 @@ class ChatHistory {
     }
 
     // Получить список сообщений
-    public static ArrayList<Message> getList() {
+    public static LinkedList<Message> getList() {
         return list;
     }
 }

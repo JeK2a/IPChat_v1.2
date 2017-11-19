@@ -1,4 +1,7 @@
-import entity.Message;
+package com.ChatIP.client;
+
+import com.ChatIP.Settings;
+import com.ChatIP.entity.Message;
 
 import javax.swing.*;
 import java.awt.*;

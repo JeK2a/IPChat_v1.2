@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.MessageEntity" table="message" schema="myshema">
+    <class name="com.ChatIP.entity.Message" table="message" schema="myshema">
         <id name="id">
             <column name="id" sql-type="int(11)" length="11"/>
         </id>

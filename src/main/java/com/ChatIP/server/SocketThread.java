@@ -1,11 +1,11 @@
-import entity.Message;
-import org.jetbrains.annotations.Contract;
+package com.ChatIP.server;
+
+import com.ChatIP.entity.Message;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 class SocketThread implements Runnable {

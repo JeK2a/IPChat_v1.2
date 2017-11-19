@@ -1,4 +1,4 @@
-package entity;
+package com.ChatIP.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
