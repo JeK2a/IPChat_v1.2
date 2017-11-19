@@ -9,9 +9,9 @@ class ChatHistory {
     // Добавление нового сообщения в историю
     public static void add(Message message) {
         if (list.size() >= Settings.getSizeHistory()) { // Если история заполнена, то
-            list.remove(0);                       // Удаление самого старого сообщения
+            list.remove(0);                       // удаление самого старого сообщения
         }
-        list.add(message);                               // Добавление нового сообщения в историю
+        list.add(message);                               // добавление нового сообщения в историю
     }
 
     // Получить список сообщений

@@ -36,14 +36,14 @@ class ChatServer extends JFrame {
             public void windowDeactivated(WindowEvent e) { }
         });      // Добавить событи для взаимодействия с основным окном
 
-        textArea = new JTextArea(20, 30); // Панель для вывода сообщения
-        textArea.setEditable(false); // Сделать панель для вывода текста активной
+        textArea = new JTextArea(20, 30);         // Панель для вывода сообщения
+        textArea.setEditable(false);                             // Сделать панель для вывода текста активной
 
-        JScrollPane scrollPane = new JScrollPane(textArea);  // Панель прокрутки
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Вертикальная прокрутка
+        JScrollPane scrollPane = new JScrollPane(textArea);                                  // Панель прокрутки
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);     // Вертикальная прокрутка
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); // Горизонтальная прокрутка
-        setPreferredSize(new Dimension(450, 450));  // Установить размер панели прокрутки
-        add(scrollPane); // Добавить на окно панель прокрутки
+        setPreferredSize(new Dimension(450, 450));                             // Установить размер панели прокрутки
+        add(scrollPane);                                                                     // Добавить на окно панель прокрутки
 
         setVisible(true); // Сделать окно видимым
         pack();           //  Сжать окно до минимума
@@ -62,8 +62,8 @@ class ChatServer extends JFrame {
             enterMessage("Сервер запущен");
 
             while(true) {
-                if (SocketThread.getClientsQuantity() <= Settings.getSizeMaxClients()) { // Если не привышено максималь
-                    new Thread(new SocketThread(serverSocket.accept())).start(); // Созлание нового потока на сервере
+                if (SocketThread.getClientsQuantity() <= Settings.getSizeMaxClients()) {   // Если не привышено максималь
+                    new Thread(new SocketThread(serverSocket.accept())).start();           // Созлание нового потока на сервере
                 } else {
                     enterMessage("Превышено максимальное количество пользователей!"); // Вывести информационное сообщение
                 }

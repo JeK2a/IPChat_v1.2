@@ -22,9 +22,9 @@ class AddToMySQL {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password); // JDBC подключение к MySQL
 
-            if (connection == null) { // Если подключение к БД не установлено
+            if (connection == null) {                       // Если подключение к БД не установлено
                 System.err.println("Нет соединения с БД!"); // Вывести ошибку
-                System.exit(0); // И выйти из программы
+                System.exit(0);                      // И выйти из программы
             }
 
             Statement statement = connection.createStatement(); // getting Statement object to execute query
@@ -34,8 +34,8 @@ class AddToMySQL {
                            "VALUES (\'" + timestamp + "\', \'" + name + "\', \'" + text +
                            "\', \'" + namePCAndIP + "\', \'" + status + "\');";
 //            String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
-//                    "VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
-//                    "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
+//                           "VALUES (\'" + new SimpleDateFormat("yyyyMMddHHmmss").format(date) +
+//                           "\', \'" + name + "\', \'" + text + "\', \'" + namePCAndIP + "\', \'" + status + "\');";
             statement.executeUpdate(query);
         } catch(SQLException | ClassNotFoundException e){
              System.err.println(e);

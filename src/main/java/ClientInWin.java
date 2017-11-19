@@ -17,8 +17,8 @@ class ClientInWin implements Runnable {
         while (true) {  // Работать постоянно
             try {
                 ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream()); // Создание входящего потока из сокета
-                Message message = (Message) objectInputStream.readObject(); // Получение входящего сообщения
-                ChatClientWin.addMessage(message); // Добавление полученного сообщения на основно окно
+                Message message = (Message) objectInputStream.readObject();                           // Получение входящего сообщения
+                ChatClientWin.addMessage(message);                                                    // Добавление полученного сообщения на основно окно
             } catch (IOException | ClassNotFoundException e) {
                 System.err.println(e);
             }

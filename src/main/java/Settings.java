@@ -8,9 +8,9 @@ import java.io.IOException;
 
 // Получение настроек из XML файла
 class Settings {
-    private static int port; // Порт
-    private static String serverPc; // Имя серверного компьютера
-    private static int sizeHistory; // Получить максимального количества сообщении в истории
+    private static int port;           // Порт
+    private static String serverPc;    // Имя серверного компьютера
+    private static int sizeHistory;    // Получить максимального количества сообщении в истории
     private static int sizeMaxClients; // Получение максимального количества подключенных к серверу клиентов
 
     static int getPort() {

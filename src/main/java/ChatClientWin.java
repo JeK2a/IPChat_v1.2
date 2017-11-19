@@ -33,10 +33,10 @@ public class ChatClientWin {
             add(enterDialog, BorderLayout.CENTER); // Добавление на вторичное окно поля для ввода имени
 
 
-            JButton okB = new JButton("ok"); // Кнопка для ввода имени
-            okB.addActionListener(e -> {
+            JButton okB = new JButton("ok");        // Кнопка для ввода имени
+            okB.addActionListener(e -> {                 // Добавление событи кнопке
                 if (!enterDialog.getText().equals("")) { // Если диалоговое окно заполненно
-                    name = enterDialog.getText(); // Получить имя из диалогового окна
+                    name = enterDialog.getText();        // Получить имя из диалогового окна
                     dispose();
                 }
             });
@@ -48,8 +48,8 @@ public class ChatClientWin {
 
     private static class MainFrame extends JFrame {
         private ObjectOutputStream outputStream; // Исходящий поток
-        private String status = "online"; // Статус текущего пользователя
-        private String whoIm = "";  // Информация о текущем компьютере
+        private String status = "online";        // Статус текущего пользователя
+        private String whoIm = "";               // Информация о текущем компьютере
 
         MainFrame() {
             super("IPChatClient V1.2");
@@ -57,30 +57,30 @@ public class ChatClientWin {
 
             try {
                 InetAddress address = InetAddress.getByName(Settings.getServerPc()); // получение адреса сервера в сети
-                Socket socket = new Socket(address, Settings.getPort()); // открытия соета для связи с сервером
+                Socket socket = new Socket(address, Settings.getPort());             // открытия соета для связи с сервером
 
                 whoIm = InetAddress.getLocalHost().getHostName() + " - " + InetAddress.getLocalHost().getHostAddress();
 
-                outputStream = new ObjectOutputStream(socket.getOutputStream()); // создание потока для отправки сообщение на сервер
-                new Thread(new ClientInWin(socket)).start();  // Создание потока для входящих сообщений с сервера
+                outputStream = new ObjectOutputStream(socket.getOutputStream()); // Создание потока для отправки сообщение на сервер
+                new Thread(new ClientInWin(socket)).start();                     // Создание потока для входящих сообщений с сервера
 
                 System.out.println(Settings.getServerPc()); // вывод на экран название ПК сервера
-                System.out.println(Settings.getPort()); // вывод на экран порт ПК сервера
+                System.out.println(Settings.getPort());     // вывод на экран порт ПК сервера
                 System.out.println("address = " + address); // вывод на экран адреса
-                System.out.println("socket = " + socket); // вывод на экран сокета
+                System.out.println("socket = " + socket);   // вывод на экран сокета
             } catch (IOException e) {
                 System.err.println(e);
             }
 
             // Создание графической части клиента
             textArea = new JTextArea(20, 30); // Поле для вывода сообщений
-            textArea.setEditable(false); // Сделать неактивным поле для вывода сообщений
+            textArea.setEditable(false);                     // Сделать неактивным поле для вывода сообщений
 
-            JScrollPane scrollPane = new JScrollPane(textArea); // Панель прокрутки
-            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Вертикальная прокрутка
+            JScrollPane scrollPane = new JScrollPane(textArea);                                  // Панель прокрутки
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);     // Вертикальная прокрутка
             scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); // Горизонтальная прокрутка
-            setPreferredSize(new Dimension(450, 450)); // Установить размер окна
-            add(scrollPane, BorderLayout.NORTH); // Добавление к окну панель с прокруткой
+            setPreferredSize(new Dimension(450, 450));                             // Установить размер окна
+            add(scrollPane, BorderLayout.NORTH);                                                 // Добавление к окну панель с прокруткой
 
             textEnter = new JTextField(50); // Поле для ввода сообщения
             add(textEnter, BorderLayout.SOUTH);     // Добавление к окну поля для ввода сообшения
@@ -90,8 +90,9 @@ public class ChatClientWin {
             textEnter.addActionListener(e -> {
                 if (!textEnter.getText().equals("")) {
                     try {
-                        outputStream.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
-                        outputStream.flush(); // проталкивание буфера вывода
+                        // отправка сообщения на сервер
+                        outputStream.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status));
+                        outputStream.flush();   // проталкивание буфера вывода
                         textEnter.setText("");  // обнуление строки для ввода текста
                     } catch (IOException e2) {
                         System.err.println(e2);

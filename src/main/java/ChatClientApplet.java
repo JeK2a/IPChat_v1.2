@@ -59,7 +59,8 @@ public class ChatClientApplet extends Applet implements ActionListener {
     @Override
     public void destroy() {
         try {
-            out.writeObject(new Message(new Timestamp(new Date().getTime()), name, "END", whoIm, "offline")); // отправка на сервер данных, что клиент отключился
+            // Отправка на сервер данных, что клиент отключился
+            out.writeObject(new Message(new Timestamp(new Date().getTime()), name, "END", whoIm, "offline"));
             out.flush(); // проталкивание буфера
         } catch (IOException e) {
             System.err.println(e);
@@ -79,9 +80,9 @@ public class ChatClientApplet extends Applet implements ActionListener {
             } else {
                 try {
                     String status = "online";
-                    out.writeObject(new Message(new Timestamp(new Date().getTime()),
-                                    name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
-                    out.flush(); // проталкивание буфера вывода
+                    // Отправка сообщения на сервер
+                    out.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status));
+                    out.flush();            // проталкивание буфера вывода
                     textEnter.setText("");  // обнуление строки для ввода текста
                 } catch (IOException e2) {
                     System.err.println(e2);
