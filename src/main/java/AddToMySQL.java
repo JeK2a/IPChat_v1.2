@@ -10,7 +10,7 @@ class AddToMySQL {
     private static final String user = "root";
     private static final String password = "nokia3510";
 
-    static void addMessageToMySQL(Message message) {
+    public static void addMessageToMySQL(Message message) {
         Timestamp timestamp = new Timestamp(message.getDate().getTime());
         String name = message.getName();
         String text = message.getText();
@@ -20,16 +20,16 @@ class AddToMySQL {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url, user, password); // opening database connection to MySQL server
+            connection = DriverManager.getConnection(url, user, password); // JDBC подключение к MySQL
 
-            if (connection == null) {
-                System.out.println("Нет соединения с БД!");
-                System.exit(0);
+            if (connection == null) { // Если подключение к БД не установлено
+                System.err.println("Нет соединения с БД!"); // Вывести ошибку
+                System.exit(0); // И выйти из программы
             }
 
             Statement statement = connection.createStatement(); // getting Statement object to execute query
 
-            // Создание запроса для добавление сообщения в базу  M
+            // Создание запроса для добавление сообщения в базу
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
                            "VALUES (\'" + timestamp + "\', \'" + name + "\', \'" + text +
                            "\', \'" + namePCAndIP + "\', \'" + status + "\');";

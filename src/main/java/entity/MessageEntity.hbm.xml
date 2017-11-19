@@ -17,7 +17,7 @@
         <property name="text">
             <column name="text" sql-type="longtext"/>
         </property>
-        <property name="getNamePCAndIP">
+        <property name="namePCAndIP">
             <column name="namePCAndIP" sql-type="varchar(25)" length="25"/>
         </property>
         <property name="status">

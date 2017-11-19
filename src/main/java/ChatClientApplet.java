@@ -26,14 +26,14 @@ public class ChatClientApplet extends Applet implements ActionListener {
     @Override
     public void init() {
         textArea.setEditable(false); // сделать неактивной для редактирования область вывода
-        textArea.append("Enter you name:");
-        add(textArea); // добавить область вывода
+        textArea.append("Введите имя:");
+        add(textArea);  // добавить область вывода
         add(textEnter); // добавить область ввода
         textEnter.addActionListener(this);  // добавить реакцию на нажатие enter
         textEnter.requestFocus(); // Установить фокус на панель ввода
 
         try {
-             InetAddress address = InetAddress.getByName(Settings.getServerPc()); // получение адреса сервера в сети
+            InetAddress address = InetAddress.getByName(Settings.getServerPc()); // получение адреса сервера в сети
             Socket socket = new Socket(address, Settings.getPort()); // открытия соета для связи с сервером
 
             whoIm = InetAddress.getLocalHost().getHostName() + " - " + InetAddress.getLocalHost().getHostAddress();
@@ -79,7 +79,8 @@ public class ChatClientApplet extends Applet implements ActionListener {
             } else {
                 try {
                     String status = "online";
-                    out.writeObject(new Message(new Timestamp(new Date().getTime()), name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
+                    out.writeObject(new Message(new Timestamp(new Date().getTime()),
+                                    name, textEnter.getText(), whoIm, status)); // отправка сообщения на сервер
                     out.flush(); // проталкивание буфера вывода
                     textEnter.setText("");  // обнуление строки для ввода текста
                 } catch (IOException e2) {

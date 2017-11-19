@@ -47,6 +47,11 @@ class MyTest {
         AddToMySQL.addMessageToMySQL(new Message(new Timestamp(new Date().getTime()), "JeK2aTest", "testText", "testPC", "test"));
         System.out.println("TestAddToMySQL 1 Все ок!");
 
+        for (Integer i=0; i<100; i++) {
+            AddToMySQL.addMessageToMySQL(new Message(new Timestamp(new Date().getTime()), "JeK2aTest", i.toString(), "testPC", "test"));
+        }
+        System.out.println("TestAddToMySQL 3 Все ок!");
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password); // Подключение к MySQL базе данных
@@ -58,7 +63,7 @@ class MyTest {
 
             Statement statement = connection.createStatement(); // getting Statement object to execute query
 
-            // executing SELECT query
+            // Создание запроса для добавление сообщения в базу
             String query = "INSERT INTO myshema.message (date, name, text, namePCAndIP, status) \n" +
                            " VALUES (\'" + new Timestamp(new Date().getTime()) + "\', \'" + "JeK2aTest" +
                            "\', \'" + "test" + "\', \'" + "test" + "\', \'" + "test" + "\');";

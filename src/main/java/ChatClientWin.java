@@ -25,34 +25,35 @@ public class ChatClientWin {
 
     // Диалоговое окно для ввода имени пользователя чата
     private static class EnterNameDialog extends JDialog {
-        EnterNameDialog(JFrame parent) {  // Конструктор
-            super(parent, "Enter name dialog", true);
+        EnterNameDialog(JFrame parent) { // Конструктор
+            super(parent, "Регистрация пользователя", true);
             setLayout(new FlowLayout());
-            add(new JLabel("Enter your name"), BorderLayout.WEST);
-            JTextField enterDialog = new JTextField("",15);
-            add(enterDialog, BorderLayout.CENTER);
+            add(new JLabel("Введите имя"), BorderLayout.WEST); // Создать надпись
+            JTextField enterDialog = new JTextField("",15); // Поле для ввода имени пользователя
+            add(enterDialog, BorderLayout.CENTER); // Добавление на вторичное окно поля для ввода имени
 
-            JButton okB = new JButton("ok");
+
+            JButton okB = new JButton("ok"); // Кнопка для ввода имени
             okB.addActionListener(e -> {
-                if (!enterDialog.getText().equals("")) {
-                    name = enterDialog.getText();
+                if (!enterDialog.getText().equals("")) { // Если диалоговое окно заполненно
+                    name = enterDialog.getText(); // Получить имя из диалогового окна
                     dispose();
                 }
             });
-            add(okB, BorderLayout.EAST);
-            pack();
-            setVisible(true);
+            add(okB, BorderLayout.EAST); // Добавление в диалоговое окне кнопки для ввода сообщений
+            pack(); // Упаковать окно
+            setVisible(true); // Сделать диалоговое окно видимым =
         }
     }
 
     private static class MainFrame extends JFrame {
-        private ObjectOutputStream outputStream;
-        private String status = "online";
-        private String whoIm = "";
+        private ObjectOutputStream outputStream; // Исходящий поток
+        private String status = "online"; // Статус текущего пользователя
+        private String whoIm = "";  // Информация о текущем компьютере
 
         MainFrame() {
             super("IPChatClient V1.2");
-            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  // Завершить работу программы, при закрытии окна
 
             try {
                 InetAddress address = InetAddress.getByName(Settings.getServerPc()); // получение адреса сервера в сети
@@ -72,19 +73,19 @@ public class ChatClientWin {
             }
 
             // Создание графической части клиента
-            textArea = new JTextArea(20, 30);
-            textArea.setEditable(false);
+            textArea = new JTextArea(20, 30); // Поле для вывода сообщений
+            textArea.setEditable(false); // Сделать неактивным поле для вывода сообщений
 
-            JScrollPane scrollPane = new JScrollPane(textArea);
-            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-            setPreferredSize(new Dimension(450, 450));
-            add(scrollPane, BorderLayout.NORTH);
+            JScrollPane scrollPane = new JScrollPane(textArea); // Панель прокрутки
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Вертикальная прокрутка
+            scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); // Горизонтальная прокрутка
+            setPreferredSize(new Dimension(450, 450)); // Установить размер окна
+            add(scrollPane, BorderLayout.NORTH); // Добавление к окну панель с прокруткой
 
-            textEnter = new JTextField(50);
-            add(textEnter, BorderLayout.SOUTH);
+            textEnter = new JTextField(50); // Поле для ввода сообщения
+            add(textEnter, BorderLayout.SOUTH);     // Добавление к окну поля для ввода сообшения
 
-            setVisible(true);
+            setVisible(true); // Сделать окно видимым
 
             textEnter.addActionListener(e -> {
                 if (!textEnter.getText().equals("")) {
@@ -97,9 +98,10 @@ public class ChatClientWin {
                     }
                 }
             });
-            pack();
-            textEnter.requestFocus(true);
+            pack(); // Упаковать окно
+            textEnter.requestFocus(true); // Установить фокус на поле для ввода сообщений
 
+            // События основного окна
             this.addWindowListener(new WindowListener() {
                 @Override
                 public void windowOpened(WindowEvent e) { }

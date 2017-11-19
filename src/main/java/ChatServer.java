@@ -34,7 +34,7 @@ class ChatServer extends JFrame {
 
             @Override
             public void windowDeactivated(WindowEvent e) { }
-        }); // Добавить событи для взаимодействия с основным окном
+        });      // Добавить событи для взаимодействия с основным окном
 
         textArea = new JTextArea(20, 30); // Панель для вывода сообщения
         textArea.setEditable(false); // Сделать панель для вывода текста активной
@@ -59,7 +59,7 @@ class ChatServer extends JFrame {
         new ChatServer("IPChatServer V1.2");
 
         try (ServerSocket serverSocket = new ServerSocket(Settings.getPort())) {
-            enterMessage("Server starting...");
+            enterMessage("Сервер запущен");
 
             while(true) {
                 if (SocketThread.getClientsQuantity() <= Settings.getSizeMaxClients()) { // Если не привышено максималь

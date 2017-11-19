@@ -13,8 +13,8 @@ class ClientInWeb implements Runnable {
     }
 
     @Override
-    public void run() {  // Запуск потока
-        while (true) {   // Работать постоянно
+    public void run() { // Запуск потока
+        while (true) {  // Работать постоянно
             try {
                 ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream()); // Создание входящего потока из сокета
                 Message message = (Message) objectInputStream.readObject(); // Получение входящего сообщения
