@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.HashSet;
+import java.util.LinkedList;
 
 class SocketThread implements Runnable {
 
     private final Socket SOCKET;                                 // Сокет
-    private static HashSet<Socket> listSocket = new HashSet<>(); // Список всех сокетов клиентов, подключенных к серверу
+    private static LinkedList<Socket> listSocket = new LinkedList<>(); // Список всех сокетов клиентов, подключенных к серверу
     private static int clientsColvo = 0;                         // Количество подключенных клиентов
     private Message message = null;                              // Сообщение
     private ObjectInputStream inputStream = null;                // Входящий потока
