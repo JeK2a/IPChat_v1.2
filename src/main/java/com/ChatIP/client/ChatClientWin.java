@@ -102,7 +102,7 @@ public class ChatClientWin {
                     }
                 }
             });
-            pack(); // Упаковать окно
+            pack();                                 // Упаковать окно
             textEnter.requestFocus(true); // Установить фокус на поле для ввода сообщений
 
             // События основного окна
